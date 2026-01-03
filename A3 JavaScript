@@ -1,0 +1,535 @@
+window.addEventListener('DOMContentLoaded', function() {
+  const today = new Date();
+  const formattedDate = today.toLocaleDateString(undefined, {
+    weekday: 'long',
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric'
+  });
+  document.getElementById("currentDate").textContent = formattedDate;
+
+  updateSliderValue(1);
+});
+
+function updateSliderValue(value) {
+  const output = document.getElementById("sliderValue");
+  if (output) {
+    output.innerHTML = value;
+  }
+}
+
+function validateDob() {
+  const dob = document.getElementById("dob");
+  let date = new Date(dob.value);
+  let maxDate = new Date().setFullYear(new Date().getFullYear() - 120);
+
+  if (!dob.value) {
+    document.getElementById("dob-error").innerHTML = "Date of birth is required";
+    return false;
+  } else if (date > new Date()) {
+    document.getElementById("dob-error").innerHTML = "Date can't be in the future";
+    return false;
+  } else if (date < new Date(maxDate)) {
+    document.getElementById("dob-error").innerHTML = "Date can't be more than 120 years ago";
+    return false;
+  } else {
+    document.getElementById("dob-error").innerHTML = "";
+    return true;
+  }
+}
+
+function validateFname() {
+  const fname = document.getElementById("fname").value.trim();
+  const namePattern = /^[a-zA-Z'-]+$/;
+  
+  if (fname === "") {
+    document.getElementById("fname-error").innerHTML = "First name field cannot be empty";
+    return false;
+  } else if (!fname.match(namePattern)) {
+    document.getElementById("fname-error").innerHTML = "Letters, apostrophes, and dashes only";
+    return false;
+  } else if (fname.length < 2) {
+    document.getElementById("fname-error").innerHTML = "First name cannot be less than 2 characters";
+    return false;
+  } else if (fname.length > 30) {
+    document.getElementById("fname-error").innerHTML = "First name cannot be more than 30 characters";
+    return false;
+  } else {
+    document.getElementById("fname-error").innerHTML = "";
+    return true;
+  }
+}
+
+function validateMini() {
+  const mname = document.getElementById("mname");
+  let mini = mname.value.trim();
+  const namePattern = /^[A-Z]?$/;
+
+
+  if (mini === "") {
+    document.getElementById("mid-error").innerHTML = "";
+    return true;
+  }
+
+  mini = mini.toUpperCase();
+  mname.value = mini;
+
+  if (!mini.match(namePattern)) {
+    document.getElementById("mid-error").innerHTML = "Middle initial must be a single uppercase letter";
+    return false;
+  } else {
+    document.getElementById("mid-error").innerHTML = "";
+    return true;
+  }
+}
+
+function validateLname() {
+  const lname = document.getElementById("lname").value.trim();
+  const namePattern = /^[a-zA-Z'-]+$/;
+  
+  if (lname === "") {
+    document.getElementById("lname-error").innerHTML = "Last name field cannot be empty";
+    return false;
+  } else if (!lname.match(namePattern)) {
+    document.getElementById("lname-error").innerHTML = "Letters, apostrophes, and dashes only";
+    return false;
+  } else if (lname.length < 2) {
+    document.getElementById("lname-error").innerHTML = "Last name cannot be less than 2 characters";
+    return false;
+  } else if (lname.length > 30) {
+    document.getElementById("lname-error").innerHTML = "Last name cannot be more than 30 characters";
+    return false;
+  } else {
+    document.getElementById("lname-error").innerHTML = "";
+    return true;
+  }
+}
+
+function validateEmail() {
+  const emailField = document.getElementById("Email");
+  let email = emailField.value.trim().toLowerCase();
+  const emailR = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,20}$/i;
+  
+
+  emailField.value = email;
+  
+  if (email === "") {
+    document.getElementById("email-error").innerHTML = "Email is required";
+    return false;
+  } else if (!emailR.test(email)) {
+    document.getElementById("email-error").innerHTML = "Please enter a valid email";
+    return false;
+  } else {
+    document.getElementById("email-error").innerHTML = "";
+    return true;
+  }
+}
+
+function validatephone() {
+  const phone = document.getElementById("phone");
+  const phonePattern = /^[0-9]{3}-[0-9]{3}-[0-9]{4}$/;
+  
+  if (phone.value.trim() === "") {
+    document.getElementById("phone-error").innerHTML = "Phone number is required";
+    return false;
+  } else if (!phonePattern.test(phone.value)) {
+    document.getElementById("phone-error").innerHTML = "Format: 123-456-7890";
+    return false;
+  } else {
+    document.getElementById("phone-error").innerHTML = "";
+    return true;
+  }
+}
+
+function validateAddress1() {
+  const address1 = document.getElementById("address1");
+  const value = address1.value.trim();
+  
+  if (value === "") {
+    document.getElementById("address1-error").innerHTML = "Address is required";
+    return false;
+  } else if (value.length < 2) {
+    document.getElementById("address1-error").innerHTML = "Address must be at least 2 characters";
+    return false;
+  } else {
+    document.getElementById("address1-error").innerHTML = "";
+    return true;
+  }
+}
+
+function validateAddress2() {
+  const address2 = document.getElementById("address2");
+  const value = address2.value.trim();
+  
+
+  if (value !== "") {
+    const validPattern = /^[a-zA-Z0-9\s#-]+$/;
+    if (!validPattern.test(value)) {
+      document.getElementById("address2-error").innerHTML = "Only letters, numbers, spaces, #, and - allowed";
+      return false;
+    }
+  }
+  
+  document.getElementById("address2-error").innerHTML = "";
+  return true;
+}
+
+function validateCity() {
+  const city = document.getElementById("City1");
+  const value = city.value.trim();
+  const cityPattern = /^[a-zA-Z\s'-]+$/;
+  
+  if (value === "") {
+    document.getElementById("city-error").innerHTML = "City is required";
+    return false;
+  } else if (!cityPattern.test(value)) {
+    document.getElementById("city-error").innerHTML = "Only letters, spaces, apostrophes, and dashes allowed";
+    return false;
+  } else if (value.length < 2) {
+    document.getElementById("city-error").innerHTML = "City name must be at least 2 characters";
+    return false;
+  } else {
+    document.getElementById("city-error").innerHTML = "";
+    return true;
+  }
+}
+
+function validateState() {
+  const state = document.getElementById("state");
+  
+  if (!state.value || state.value === "") {
+    document.getElementById("state-error").innerHTML = "Please select a state";
+    return false;
+  } else {
+    document.getElementById("state-error").innerHTML = "";
+    return true;
+  }
+}
+
+function validateSsn() {
+  const ssn = document.getElementById("ssn").value;
+  const ssnR = /^[0-9]{3}-[0-9]{2}-[0-9]{4}$/;
+
+  if (ssn === "") {
+    document.getElementById("ssn-error").innerHTML = "SSN is required";
+    return false;
+  } else if (!ssnR.test(ssn)) {
+    document.getElementById("ssn-error").innerHTML = "Format: xxx-xx-xxxx";
+    return false;
+  } else {
+    document.getElementById("ssn-error").innerHTML = "";
+    return true;
+  }
+}
+
+function validateZcode() {
+  const zipInput = document.getElementById("Zipcode");
+  let zip = zipInput.value.replace(/[^\d-]/g, "");
+
+  if (!zip) {
+    document.getElementById("zcode-error").innerHTML = "Zip code is required";
+    return false;
+  }
+
+  if (zip.length > 5) {
+    zip = zip.slice(0, 5) + "-" + zip.slice(5, 9);
+  } else {
+    zip = zip.slice(0, 5);
+  }
+
+  zipInput.value = zip;
+  
+  const zipPattern = /^\d{5}(-\d{4})?$/;
+  if (!zipPattern.test(zip)) {
+    document.getElementById("zcode-error").innerHTML = "Invalid zip code format";
+    return false;
+  }
+  
+  document.getElementById("zcode-error").innerHTML = "";
+  return true;
+}
+
+function validateUid() {
+  const uidField = document.getElementById("uid");
+  const uid = uidField.value.toLowerCase();
+  uidField.value = uid;
+
+  if (uid.length === 0) {
+    document.getElementById("uid-error").innerHTML = "User ID is required";
+    return false;
+  }
+
+  if (!isNaN(uid.charAt(0))) {
+    document.getElementById("uid-error").innerHTML = "User ID can't start with a number";
+    return false;
+  }
+
+  let regex = /^[a-z0-9_-]+$/;
+  if (!regex.test(uid)) {
+    document.getElementById("uid-error").innerHTML = "User ID can only have letters, numbers, underscores, and dashes";
+    return false;
+  } else if (uid.length < 5) {
+    document.getElementById("uid-error").innerHTML = "User ID must be at least 5 characters";
+    return false;
+  } else if (uid.length > 30) {
+    document.getElementById("uid-error").innerHTML = "User ID can't exceed 30 characters";
+    return false;
+  } else {
+    document.getElementById("uid-error").innerHTML = "";
+    return true;
+  }
+}
+
+function validatePword() {
+  const pword = document.getElementById("pword").value;
+  const uid = document.getElementById("uid").value.toLowerCase();
+  let errorMessage = [];
+
+  document.getElementById("msg1").innerHTML = "";
+  document.getElementById("msg2").innerHTML = "";
+  document.getElementById("msg3").innerHTML = "";
+  document.getElementById("msg4").innerHTML = "";
+
+  if (pword === "") {
+    document.getElementById("msg1").innerHTML = "Password is required";
+    return false;
+  }
+
+  if (pword.length < 10) {
+    errorMessage.push("Password must be at least 10 characters");
+  }
+  if (!pword.match(/[a-z]/)) {
+    errorMessage.push("Enter at least one lowercase letter");
+  }
+  if (!pword.match(/[A-Z]/)) {
+    errorMessage.push("Enter at least one uppercase letter");
+  }
+  if (!pword.match(/[0-9]/)) {
+    errorMessage.push("Enter at least one number");
+  }
+  if (!pword.match(/[!\@#\$%&*\-_\\.+\(\)]/)) {
+    errorMessage.push("Enter at least one special character");
+  }
+  if (uid && pword.toLowerCase().includes(uid)) {
+    errorMessage.push("Password can't contain user ID");
+  }
+
+  if (errorMessage.length > 0) {
+    for (let i = 0; i < errorMessage.length && i < 4; i++) {
+      document.getElementById("msg" + (i + 1)).innerHTML = errorMessage[i];
+    }
+    return false;
+  } else {
+    document.getElementById("msg1").innerHTML = "Password is valid";
+    document.getElementById("msg1").style.color = "green";
+    return true;
+  }
+}
+
+function confirmPword() {
+  const pword1 = document.getElementById("pword").value;
+  const pword2 = document.getElementById("vpword").value;
+
+  if (pword2 === "") {
+    document.getElementById("pword2-error").innerHTML = "Please verify your password";
+    return false;
+  } else if (pword1 !== pword2) {
+    document.getElementById("pword2-error").innerHTML = "Passwords don't match";
+    return false;
+  } else {
+    document.getElementById("pword2-error").innerHTML = "Passwords match";
+    document.getElementById("pword2-error").style.color = "green";
+    return true;
+  }
+}
+
+function validateGender() {
+  const male = document.getElementById("g1");
+  const female = document.getElementById("g2");
+  
+  if (!male.checked && !female.checked) {
+    return false;
+  }
+  return true;
+}
+
+function validateInsurance() {
+  const yes = document.getElementById("I1");
+  const no = document.getElementById("I2");
+  
+  if (!yes.checked && !no.checked) {
+    return false;
+  }
+  return true;
+}
+
+function validateVaccine() {
+  const yes = document.getElementById("Y1");
+  const no = document.getElementById("Y2");
+  
+  if (!yes.checked && !no.checked) {
+    return false;
+  }
+  return true;
+}
+
+function validateNotes() {
+  const notes = document.getElementById("notes");
+  const value = notes.value.trim();
+  
+
+  if (value !== "") {
+    const validPattern = /^[a-zA-Z0-9\s.,;:?!()\-'"]+$/;
+    if (!validPattern.test(value)) {
+      document.getElementById("notes-error").innerHTML = "Only letters, numbers, spaces, and common punctuation allowed";
+      return false;
+    }
+  }
+  
+  document.getElementById("notes-error").innerHTML = "";
+  return true;
+}
+
+function reviewInput() {
+  const formcontent = document.querySelector("form"); 
+  let formoutput = "<table class='output'><tr><th colspan='3'>Review Your Information:</th></tr>";
+ 
+  for (let i = 0; i < formcontent.length; i++) {
+    if (formcontent.elements[i].value !== "") {
+      const elemName = formcontent.elements[i].name || formcontent.elements[i].id;
+     
+      switch (formcontent.elements[i].type) {
+        case "checkbox":
+          if (formcontent.elements[i].checked) {
+            formoutput += `<tr class='output'><td class='output' align='right'>${elemName}</td><td class='output'>&#x2713;</td></tr>`;
+          }
+          break;
+        case "radio":
+          if (formcontent.elements[i].checked) {
+            formoutput += `<tr class='output'><td class='output' align='right'>${elemName}</td><td class='output'>${formcontent.elements[i].value}</td></tr>`;
+          }
+          break;
+        case "password":
+          formoutput += `<tr class='output'><td class='output' align='right'>${elemName}</td><td class='output'>********</td></tr>`;
+          break;
+        case "submit":
+        case "reset":
+        case "button":
+          break;
+        default:
+          formoutput += `<tr class='output'><td class='output' align='right'>${elemName}</td><td class='output'>${formcontent.elements[i].value}</td></tr>`;
+      }
+    }
+  }
+  formoutput += "</table>";
+  document.getElementById("showInput").innerHTML = formoutput;
+}
+
+function showAlert(message) {
+  const alertBox = document.getElementById("alert-box");
+  const alertMessage = document.getElementById("alert-message");
+  const closeAlert = document.getElementById("close-alert");
+
+  alertMessage.innerHTML = message;
+  alertBox.style.display = "block";
+  
+  closeAlert.onclick = function() {
+    alertBox.style.display = "none";
+  };
+}
+
+function validateEverything() {
+  let valid = true;
+  let errorMessages = [];
+
+
+  document.querySelectorAll('.error').forEach(el => el.innerHTML = '');
+  
+
+  if (!validateFname()) {
+    valid = false;
+    errorMessages.push("First Name");
+  }
+  if (!validateMini()) {
+    valid = false;
+    errorMessages.push("Middle Initial");
+  }
+  if (!validateLname()) {
+    valid = false;
+    errorMessages.push("Last Name");
+  }
+  if (!validateEmail()) {
+    valid = false;
+    errorMessages.push("Email");
+  }
+  if (!validatephone()) {
+    valid = false;
+    errorMessages.push("Phone Number");
+  }
+  if (!validateDob()) {
+    valid = false;
+    errorMessages.push("Date of Birth");
+  }
+  if (!validateGender()) {
+    valid = false;
+    errorMessages.push("Gender");
+  }
+  if (!validateAddress1()) {
+    valid = false;
+    errorMessages.push("Address Line 1");
+  }
+  if (!validateAddress2()) {
+    valid = false;
+    errorMessages.push("Address Line 2");
+  }
+  if (!validateCity()) {
+    valid = false;
+    errorMessages.push("City");
+  }
+  if (!validateState()) {
+    valid = false;
+    errorMessages.push("State");
+  }
+  if (!validateZcode()) {
+    valid = false;
+    errorMessages.push("Zipcode");
+  }
+  if (!validateSsn()) {
+    valid = false;
+    errorMessages.push("SSN");
+  }
+  if (!validateUid()) {
+    valid = false;
+    errorMessages.push("User ID");
+  }
+  if (!validatePword()) {
+    valid = false;
+    errorMessages.push("Password");
+  }
+  if (!confirmPword()) {
+    valid = false;
+    errorMessages.push("Password Verification");
+  }
+  if (!validateInsurance()) {
+    valid = false;
+    errorMessages.push("Insurance");
+  }
+  if (!validateVaccine()) {
+    valid = false;
+    errorMessages.push("Vaccination Status");
+  }
+  if (!validateNotes()) {
+    valid = false;
+    errorMessages.push("Comments/Concerns");
+  }
+
+  if (valid) {
+    document.getElementById("submitBtn").style.display = "inline-block";
+    showAlert("✓ All fields are valid! You can now submit the form.");
+  } else {
+    document.getElementById("submitBtn").style.display = "none";
+    let message = "Please fix the following errors:<br><br>";
+    message += errorMessages.join(", ");
+    showAlert(message);
+  }
+}
