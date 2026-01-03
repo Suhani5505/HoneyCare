@@ -1,0 +1,20 @@
+    const today = new Date();
+    const formattedDate = today.toLocaleDateString(undefined, {
+      weekday: 'long',
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric'
+    });
+    document.getElementById("currentDate").textContent = formattedDate;
+
+
+
+
+let slider = document.getElementById("range");
+let output = document.getElementById("range-slider");
+output.innerHTML = slider.value;
+
+
+slider.oninput = function () {
+    output.innerHTML = this.value;
+};
