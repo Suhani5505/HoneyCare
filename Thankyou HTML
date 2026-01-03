@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="hw2.style.css">
+    <script src="hw2.js"></script>
+    <title>Thank you! | Honey Cares</title>
+</head>
+<header>
+    <table width="100%">
+        <tr>
+            <td valign="top" align="left" width="80%">
+                <div class="image">
+                    <img align="center" src="./Adobe_Express_-_file.png" alt="Honey Cares" width="80px" id="logo"/>
+                </div>
+            </td>
+            <td>
+              <div class="Thanks"
+                <h2>Honey Cares</h2>
+                </div>
+            </td>
+            <td valign="bottom" align="left" width="100%">
+            </td>
+        </tr>
+    </table>
+    </div>
+</header>
+<hr>
+
+<body>
+  <div class="tagline">
+  <h1>Thank You for creating your account!</h1>
+</body>
+<footer>
+    <p id="footer">&#169 2025 Honey Cares | <a href="insert.link.here" target="_blank" rel="noopener noreferrer">Contact Us!</a></p>
+</div>
+</footer>
+</html>
