@@ -1,6 +1,15 @@
 # HoneyCare
 Transactional Processing Project: Creating a patient care form
 
+Before building the website, we had to make a template to show how we wanted our form to look: <br> 
+![Template](form.png)
+
+
+
+
+
+
+
 ### **Description:**
 This project represents a cumulative four-part web development series, where each assignment systematically built upon the previous one to create an increasingly sophisticated and user-friendly form application.
 
