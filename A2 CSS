@@ -1,0 +1,187 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #fff;
+  align-items: center;
+  margin: 0;
+  padding: 20px;
+  width: 1000px;
+  margin: auto;
+  border: 1px solid black;
+}
+
+header {
+  text-align: center;
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  padding: 10px;
+}
+
+header .row {
+  display: flex;
+  align-items: center; 
+  gap: 10px; 
+}
+
+.title {
+  text-align: center;
+  font-size: 46px;
+  font-style: bold;
+  padding: 10px;
+  background-color: #fffcd5;
+  border: #ada748 2px solid;
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.time {
+  display: block;
+  text-align: right;
+}
+
+.section {
+  padding: 20px;
+  max-width: auto;
+  text-align: center;
+  background-color: #fffcd5;
+  border: #ada748 2px solid;
+  margin: 10px;
+}
+
+#patientInfo {
+  padding-top: 0px;
+}
+
+.section table {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.sectionTitle {
+  display: block;
+  width: 100%;
+  margin: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.subTitle {
+  font-size: 20px;
+}
+
+table tr {
+  width: 100%;
+  text-align: center;
+  display: block;
+  margin-bottom: 20px;
+}
+
+table tr td {
+  text-align: left;
+  width: 320px;
+}
+
+table tr td label {
+  display: inline-block;
+  width: 120px;
+}
+
+#medicalInfo {
+  padding: 30px;
+}
+
+.btn {
+  text-align: right;
+}
+
+.btn .reset {
+  background: red;
+  padding: 5px;
+  color: white;
+  border-radius: 10px;
+}
+
+.btn .submit {
+  background: green;
+  padding: 5px;
+  color: white;
+  border-radius: 10px;
+}
+
+#review {
+  background: grey;
+  padding: 5px;
+  color: white;
+  border-radius: 10px;
+}
+
+.contacts {
+  margin: 10px;
+  text-align: center;
+}
+
+.slider td {
+  width: auto;
+}
+
+#insurnace {
+  margin-left: 30px;
+}
+
+.notes {
+  margin-left: 35px;
+}
+
+.Thanks {
+  font-size: 50px;
+  text-align: center;
+  display: block;
+  background-color: #fffcd5;
+}
+
+.tagline {
+  width: 100%;
+  text-align: center;
+  display: block;
+  background-color: #fffcd5;
+}
+
+.error {
+    color: red;
+    font-size: 15px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 10px;
+}
+
+.pword-message {
+    text-align: left;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 10px;
+    position: relative;
+    background: transparent;
+    padding: 10px;
+    border-spacing: 2px;
+    border-radius: 20px;
+    color: black;
+}
+
+table.output,
+tr.output,
+td.output {
+    width: 500px;
+    background-color: #fffcd5;
+    padding: 10px;
+    border-spacing: 2px;
+    border-radius: 20px;
+    color: black;
+}
+
+td.output {
+    width: 500px;
+    background-color: white;
+    padding: 10px;
+    border-spacing: 2px;
+}
