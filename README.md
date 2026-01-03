@@ -33,8 +33,9 @@ _link A4: https://suhanispace.w3spaces.com/hw4.patient-form.html_
 This project was a deep dive into front-end development, where I applied HTML, CSS, and JavaScript—from foundational principles to advanced interactivity. I gained a new appreciation for the intricate details that shape user experience, realizing how much complexity lies behind even the simplest web elements. While I’m proud of the final result, I recognize opportunities for refinement, such as improving the visual layout through better-aligned input fields and fine-tuning the sticky footer to ensure it stays within the viewport without overflow.
 
 #### _Video of final form_
-<video src="Final Form.mp4"></video>
-
+<p align="center" width="100%">
+<video src="Final Form.mp4" width="50%" controls></video>
+</p>
 
 
 
